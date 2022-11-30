@@ -1,0 +1,63 @@
+---
+title: <span style="color:#034a94"> **Actividad 2**</span>
+output:
+html_document:
+css: styles.css
+---
+
+<br/><br/>
+
+#### <span style="color:#FF7F00"> **Problema 1**</span>
+### <span style="color:#034A94">**Probabilidad y mi vida**</span>
+
+Las decisiones forman parte de nuestras vidas y afectan nuestro futuro. Para tomarlas en algunas  ocasiones recurrimos a valorar el riesgo que  podrían tener. ¿En tu vida has  tomado decisiones con información previa que te ha permitido valorar su riesgo?. o por el contrario tus decisiones han obedecido a corazonadas y sentimientos, ¿o una mezcla de ambas?. Esta pregunta solo es para reflexionar sobre el tema . No debes contestarla si no lo deseas.
+
+</br></br></br>
+
+#### <span style="color:#FF7F00"> **Problema 2**</span>
+### <span style="color:#034A94">**Lanzamiento de un dado**</span> 
+
+Un experimento consiste en lanzar un dado y observar el número de puntos en su cara superior. Algunos eventos aleatorios que se pueden definir a partir de este experimento pueden ser:
+
++ A: sacar 2
++ B: sacar un número par
++ C: sacar un número mayor a 2
++ D: obtener A y B
++ E: obtener A o B o ambos
++ F: obtener A y C 
+
+</br>
+
++ Describa el espacio muestral asociado al experimento aleatorio
++ Liste cada uno de los eventos aleatorios A hasta F
++ Represéntelos mediante un diagrama de Ven
++ Determine en cada caso las probabilidades asociadas a cada evento aleatorio
+
+</br></br></br>
+
+#### <span style="color:#FF7F00"> **Problema 2**</span>
+### <span style="color:#034A94">**Faltar al trabajo**</span>
+
+En un grupo de  100 empleados 30 residen por fuera de la ciudad, de los cuales 10 presentan altos niveles de inasistencia al trabajo por problemas de salud, mientras que 35 de los que residen dentro en la ciudad también presentan altos niveles de inasistencia al trabajo por las mismas razones.
+	
++ Construya una tabla de probabilidades con la información anterior.
++ Represente también la información mediante un diagrama de Venn. 
++ Identifique dos eventos simples y dos eventos conjuntos En cada caso escriba en palabras la probabilidad y su resultado
++ ¿Se podría afirmar que residir en la ciudad y no tener altos niveles de inasistencia a al trabajo son eventos independientes?
+
+
+</br></br></br>
+
+#### <span style="color:#FF7F00"> **Problema 4**</span>
+### <span style="color:#034A94">**Sobre costos en la construcción**</span>
+
+Una empresa de construcción local descubrió a través de una investigación que solo el 20\% de todos los trabajos son terminados a tiempo, mientras que el 30\% sufrían sobrecostos. Además, los sobrecostos se presentan en el 75\% de las veces en la que los trabajos se terminaron a tiempo.  Carlos, gerente de la empresa desea conocer que tan probable es que un proyecto no tenga sobrecostos y se termine a tiempo. Esto le permitirá tomar decisiones en caso de ser necesario. Ayude a Carlos a resolver su interrogante.
+
+
+
+
+
+
+
+
+	
