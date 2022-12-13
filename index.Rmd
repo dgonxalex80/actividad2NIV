@@ -5,59 +5,98 @@ html_document:
 css: styles.css
 ---
 
+Los siguientes problemas requieren los conceptos de  probabilidad y variable aleatoria, revisados en la unidad 2 del curso. Siguiendo los pasos descritos podrás dar solución a los interrogantes
+
+
 <br/><br/>
 
-#### <span style="color:#FF7F00"> **Problema 1**</span>
-### <span style="color:#034A94">**Probabilidad y mi vida**</span>
+### <span style="color:#FF7F00"> **Problema 1**</span>
+## <span style="color:#034A94">**El cable quebradizo**</span>
 
-Las decisiones forman parte de nuestras vidas y afectan nuestro futuro. Para tomarlas en algunas  ocasiones recurrimos a valorar el riesgo que  podrían tener. ¿En tu vida has  tomado decisiones con información previa que te ha permitido valorar su riesgo?. o por el contrario tus decisiones han obedecido a corazonadas y sentimientos, ¿o una mezcla de ambas?. Esta pregunta solo es para reflexionar sobre el tema . No debes contestarla si no lo deseas.
+Un cable está compuesto por seis alambres. La fuerza de ruptura de cada alambre es una variable aleatoria distribuida normalmente con media de $10 kN$ y desviación estándar de $1 kN$ ($kN$=kiloNewton=$10^{3}N$). Utilizando el método de cable quebradizo, se estima que la fuerza del cable es igual a la fuerza de alambre más frágil multiplicada por el número de alambres.
 
-</br></br></br>
+```{r, echo=FALSE, out.width="15%", fig.align = "center"}
+knitr::include_graphics("img/cable.png")
+```
+<br/><br/>
 
-#### <span style="color:#FF7F00"> **Problema 2**</span>
-### <span style="color:#034A94">**Lanzamiento de un dado**</span> 
+a. Utilice una muestra simulada de tamaño 1000 para estimar la fuerza media de este tipo de cable.
 
-Un experimento consiste en lanzar un dado y observar el número de puntos en su cara superior. Algunos eventos aleatorios que se pueden definir a partir de este experimento pueden ser:
+```{r, eval=FALSE}
+cable=data.frame(
+a1 = rnorm(1000, 10,1),
+a2= rnorm(1000, 10,1),
+a3= rnorm(1000, 10,1),
+a4= rnorm(1000, 10,1),
+a5= rnorm(1000, 10,1),
+a6= rnorm(1000, 10,1))
+fuerza=apply(cable,1,min)*6
 
-+ A: sacar 2
-+ B: sacar un número par
-+ C: sacar un número mayor a 2
-+ D: obtener A y B
-+ E: obtener A o B o ambos
-+ F: obtener A y C 
+```
 
-</br>
+<br/><br/>
 
-+ Describa el espacio muestral asociado al experimento aleatorio
-+ Liste cada uno de los eventos aleatorios A hasta F
-+ Represéntelos mediante un diagrama de Ven
-+ Determine en cada caso las probabilidades asociadas a cada evento aleatorio
+b. Estime la mediana de la fuerza del cable.
 
-</br></br></br>
+```{r, eval=FALSE}
+mean(fuerza)
+```
+<br/><br/>
 
-#### <span style="color:#FF7F00"> **Problema 2**</span>
-### <span style="color:#034A94">**Faltar al trabajo**</span>
+c. Estime la desviación estándar de la fuerza del cable.
+```{r, eval=FALSE}
+sd(fuerza)
+```
+<br/><br/>
 
-En un grupo de  100 empleados 30 residen por fuera de la ciudad, de los cuales 10 presentan altos niveles de inasistencia al trabajo por problemas de salud, mientras que 35 de los que residen dentro en la ciudad también presentan altos niveles de inasistencia al trabajo por las mismas razones.
-	
-+ Construya una tabla de probabilidades con la información anterior.
-+ Represente también la información mediante un diagrama de Venn. 
-+ Identifique dos eventos simples y dos eventos conjuntos En cada caso escriba en palabras la probabilidad y su resultado
-+ ¿Se podría afirmar que residir en la ciudad y no tener altos niveles de inasistencia a al trabajo son eventos independientes?
+d. Para que sea aceptable en cierta obra, la probabilidad de que el cable se rompa con una carga de $60 kN$ debe ser menor a $0.01$. ¿Parece ser que el cable es aceptable? Explique.
 
-
-</br></br></br>
-
-#### <span style="color:#FF7F00"> **Problema 4**</span>
-### <span style="color:#034A94">**Sobre costos en la construcción**</span>
-
-Una empresa de construcción local descubrió a través de una investigación que solo el 20\% de todos los trabajos son terminados a tiempo, mientras que el 30\% sufrían sobrecostos. Además, los sobrecostos se presentan en el 75\% de las veces en la que los trabajos se terminaron a tiempo.  Carlos, gerente de la empresa desea conocer que tan probable es que un proyecto no tenga sobrecostos y se termine a tiempo. Esto le permitirá tomar decisiones en caso de ser necesario. Ayude a Carlos a resolver su interrogante.
-
+```{r, eval=FALSE}
+probD=sum(as.numeric(fuerza>60))/1000
+```
 
 
+<br/><br/><br/><br/>
 
 
+### <span style="color:#FF7F00"> **Problema 2**</span>
+## <span style="color:#034A94">**Partes defectuosas**</span>
 
 
+Victor distribuye partes para motocicletas, y se estima que cada una de ellas tiene una probabilidad de $0.03$ de estar defectuosa. José  tambien distribuye partes semejantes  y su producto tiene  una probabilidad de $0.05$ de estar defectuoso. Usted recibe un envío de $100$ partes procedente de cada vendedor (Victor  y José). 
 
-	
+```{r, echo=FALSE, out.width="45%", fig.align = "center"}
+knitr::include_graphics("img/moto.png")
+```
+
+<br/><br/>
+
+a. Sea $X$ el número de partes defectuosas en el envío proveniente del almacén de Victor  y $Y$ del número de partes defectuosas provenientes del almacén de José . ¿Cuáles son las distribuciones de las variables $X$ y $Y$? 
+
+```{r, eval=FALSE}
+data=data.frame(
+X=rbinom(1000,100,0.03),
+Y=rbinom(1000,100,0.05))
+defectuosas=apply(data, 1,sum)
+```
+
+<br/><br/>
+
+b. Genere muestras simuladas de tamaño $1000$ a partir de las distribuciones de $X$ y $Y$. 
+
+c. Utilice las muestras para estimar la probabilidad de que el número total de partes defectuosas sea menor a diez. 
+
+d. Utilice las muestras para estimar la probabilidad de que el envío de Victor tiene más partes defectuosas que el envío de José.
+
+e. Construya una gráfica de probabilidad normal para el número total de partes defectuosas. ¿La cantidad sigue una distribución normal?
+
+```{r, eval=FALSE}
+hist(defectuosas)
+plot(density(defectuosas))
+```
+
+
+<br/><br/>
+
+Ejercicios tomados de Navidi(2006)
+

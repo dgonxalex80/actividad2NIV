@@ -13,7 +13,7 @@
 
 <title> Actividad 2</title>
 
-<script src="site_libs/header-attrs-2.17/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -262,85 +262,103 @@ $(document).ready(function () {
 </div>
 
 
+<p>Los siguientes problemas requieren los conceptos de probabilidad y
+variable aleatoria, revisados en la unidad 2 del curso. Siguiendo los
+pasos descritos podrás dar solución a los interrogantes</p>
 <p><br/><br/></p>
-<div id="problema-1" class="section level4">
-<h4><span style="color:#FF7F00"> <strong>Problema 1</strong></span></h4>
+<div id="problema-1" class="section level3">
+<h3><span style="color:#FF7F00"> <strong>Problema 1</strong></span></h3>
 </div>
-<div id="probabilidad-y-mi-vida" class="section level3">
-<h3><span style="color:#034A94"><strong>Probabilidad y mi
-vida</strong></span></h3>
-<p>Las decisiones forman parte de nuestras vidas y afectan nuestro
-futuro. Para tomarlas en algunas ocasiones recurrimos a valorar el
-riesgo que podrían tener. ¿En tu vida has tomado decisiones con
-información previa que te ha permitido valorar su riesgo?. o por el
-contrario tus decisiones han obedecido a corazonadas y sentimientos, ¿o
-una mezcla de ambas?. Esta pregunta solo es para reflexionar sobre el
-tema . No debes contestarla si no lo deseas.</p>
-<p></br></br></br></p>
-<div id="problema-2" class="section level4">
-<h4><span style="color:#FF7F00"> <strong>Problema 2</strong></span></h4>
-</div>
-</div>
-<div id="lanzamiento-de-un-dado" class="section level3">
-<h3><span style="color:#034A94"><strong>Lanzamiento de un
-dado</strong></span></h3>
-<p>Un experimento consiste en lanzar un dado y observar el número de
-puntos en su cara superior. Algunos eventos aleatorios que se pueden
-definir a partir de este experimento pueden ser:</p>
-<ul>
-<li>A: sacar 2</li>
-<li>B: sacar un número par</li>
-<li>C: sacar un número mayor a 2</li>
-<li>D: obtener A y B</li>
-<li>E: obtener A o B o ambos</li>
-<li>F: obtener A y C</li>
-</ul>
-<p></br></p>
-<ul>
-<li>Describa el espacio muestral asociado al experimento aleatorio</li>
-<li>Liste cada uno de los eventos aleatorios A hasta F</li>
-<li>Represéntelos mediante un diagrama de Ven</li>
-<li>Determine en cada caso las probabilidades asociadas a cada evento
-aleatorio</li>
-</ul>
-<p></br></br></br></p>
-<div id="problema-2-1" class="section level4">
-<h4><span style="color:#FF7F00"> <strong>Problema 2</strong></span></h4>
-</div>
-</div>
-<div id="faltar-al-trabajo" class="section level3">
-<h3><span style="color:#034A94"><strong>Faltar al
-trabajo</strong></span></h3>
-<p>En un grupo de 100 empleados 30 residen por fuera de la ciudad, de
-los cuales 10 presentan altos niveles de inasistencia al trabajo por
-problemas de salud, mientras que 35 de los que residen dentro en la
-ciudad también presentan altos niveles de inasistencia al trabajo por
-las mismas razones.</p>
-<ul>
-<li>Construya una tabla de probabilidades con la información
-anterior.</li>
-<li>Represente también la información mediante un diagrama de Venn.</li>
-<li>Identifique dos eventos simples y dos eventos conjuntos En cada caso
-escriba en palabras la probabilidad y su resultado</li>
-<li>¿Se podría afirmar que residir en la ciudad y no tener altos niveles
-de inasistencia a al trabajo son eventos independientes?</li>
-</ul>
-<p></br></br></br></p>
-<div id="problema-4" class="section level4">
-<h4><span style="color:#FF7F00"> <strong>Problema 4</strong></span></h4>
+<div id="el-cable-quebradizo" class="section level2">
+<h2><span style="color:#034A94"><strong>El cable
+quebradizo</strong></span></h2>
+<p>Un cable está compuesto por seis alambres. La fuerza de ruptura de
+cada alambre es una variable aleatoria distribuida normalmente con media
+de <span class="math inline">\(10 kN\)</span> y desviación estándar de
+<span class="math inline">\(1 kN\)</span> (<span
+class="math inline">\(kN\)</span>=kiloNewton=<span
+class="math inline">\(10^{3}N\)</span>). Utilizando el método de cable
+quebradizo, se estima que la fuerza del cable es igual a la fuerza de
+alambre más frágil multiplicada por el número de alambres.</p>
+<p><img src="img/cable.png" width="15%" style="display: block; margin: auto;" />
+<br/><br/></p>
+<ol style="list-style-type: lower-alpha">
+<li>Utilice una muestra simulada de tamaño 1000 para estimar la fuerza
+media de este tipo de cable.</li>
+</ol>
+<pre class="r"><code>cable=data.frame(
+a1 = rnorm(1000, 10,1),
+a2= rnorm(1000, 10,1),
+a3= rnorm(1000, 10,1),
+a4= rnorm(1000, 10,1),
+a5= rnorm(1000, 10,1),
+a6= rnorm(1000, 10,1))
+fuerza=apply(cable,1,min)*6</code></pre>
+<p><br/><br/></p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Estime la mediana de la fuerza del cable.</li>
+</ol>
+<pre class="r"><code>mean(fuerza)</code></pre>
+<p><br/><br/></p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Estime la desviación estándar de la fuerza del cable.</li>
+</ol>
+<pre class="r"><code>sd(fuerza)</code></pre>
+<p><br/><br/></p>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>Para que sea aceptable en cierta obra, la probabilidad de que el
+cable se rompa con una carga de <span class="math inline">\(60
+kN\)</span> debe ser menor a <span class="math inline">\(0.01\)</span>.
+¿Parece ser que el cable es aceptable? Explique.</li>
+</ol>
+<pre class="r"><code>probD=sum(as.numeric(fuerza&gt;60))/1000</code></pre>
+<p><br/><br/><br/><br/></p>
+<div id="problema-2" class="section level3">
+<h3><span style="color:#FF7F00"> <strong>Problema 2</strong></span></h3>
 </div>
 </div>
-<div id="sobre-costos-en-la-construcción" class="section level3">
-<h3><span style="color:#034A94"><strong>Sobre costos en la
-construcción</strong></span></h3>
-<p>Una empresa de construcción local descubrió a través de una
-investigación que solo el 20% de todos los trabajos son terminados a
-tiempo, mientras que el 30% sufrían sobrecostos. Además, los sobrecostos
-se presentan en el 75% de las veces en la que los trabajos se terminaron
-a tiempo. Carlos, gerente de la empresa desea conocer que tan probable
-es que un proyecto no tenga sobrecostos y se termine a tiempo. Esto le
-permitirá tomar decisiones en caso de ser necesario. Ayude a Carlos a
-resolver su interrogante.</p>
+<div id="partes-defectuosas" class="section level2">
+<h2><span style="color:#034A94"><strong>Partes
+defectuosas</strong></span></h2>
+<p>Victor distribuye partes para motocicletas, y se estima que cada una
+de ellas tiene una probabilidad de <span
+class="math inline">\(0.03\)</span> de estar defectuosa. José tambien
+distribuye partes semejantes y su producto tiene una probabilidad de
+<span class="math inline">\(0.05\)</span> de estar defectuoso. Usted
+recibe un envío de <span class="math inline">\(100\)</span> partes
+procedente de cada vendedor (Victor y José).</p>
+<p><img src="img/moto.png" width="45%" style="display: block; margin: auto;" /></p>
+<p><br/><br/></p>
+<ol style="list-style-type: lower-alpha">
+<li>Sea <span class="math inline">\(X\)</span> el número de partes
+defectuosas en el envío proveniente del almacén de Victor y <span
+class="math inline">\(Y\)</span> del número de partes defectuosas
+provenientes del almacén de José . ¿Cuáles son las distribuciones de las
+variables <span class="math inline">\(X\)</span> y <span
+class="math inline">\(Y\)</span>?</li>
+</ol>
+<pre class="r"><code>data=data.frame(
+X=rbinom(1000,100,0.03),
+Y=rbinom(1000,100,0.05))
+defectuosas=apply(data, 1,sum)</code></pre>
+<p><br/><br/></p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li><p>Genere muestras simuladas de tamaño <span
+class="math inline">\(1000\)</span> a partir de las distribuciones de
+<span class="math inline">\(X\)</span> y <span
+class="math inline">\(Y\)</span>.</p></li>
+<li><p>Utilice las muestras para estimar la probabilidad de que el
+número total de partes defectuosas sea menor a diez.</p></li>
+<li><p>Utilice las muestras para estimar la probabilidad de que el envío
+de Victor tiene más partes defectuosas que el envío de José.</p></li>
+<li><p>Construya una gráfica de probabilidad normal para el número total
+de partes defectuosas. ¿La cantidad sigue una distribución
+normal?</p></li>
+</ol>
+<pre class="r"><code>hist(defectuosas)
+plot(density(defectuosas))</code></pre>
+<p><br/><br/></p>
+<p>Ejercicios tomados de Navidi(2006)</p>
 </div>
 
 
