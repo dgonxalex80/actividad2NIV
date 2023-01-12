@@ -53,6 +53,7 @@ d. Para que sea aceptable en cierta obra, la probabilidad de que el cable se rom
 
 ```{r, eval=FALSE}
 probD=sum(as.numeric(fuerza>60))/1000
+probD
 ```
 
 
