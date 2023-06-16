@@ -13,7 +13,7 @@
 
 <title> Actividad 2</title>
 
-<script src="site_libs/header-attrs-2.19/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -262,12 +262,42 @@ $(document).ready(function () {
 </div>
 
 
+<p><br/><br/></p>
+<p>Una de las principales caracteristicas de una variable aleatoria es
+su función de probabilidad <span class="math inline">\(f(x)\)</span>, la
+cual determina su valor esperado, varianza y además permite calcular
+tanto probabilidades puntuales en el caso de las varables discretas como
+tambien en intervalos tanto para variables aleatorias discretas como
+para variables continuas.</p>
+<p><br/></p>
+<p>Es posible emplear los modelos de probabilidad para simular variables
+aleatorias asociadas situaciones reales utilizando para ello funciones
+que generan números aleatorios que se puedan asociar a una determinada
+distribución de probabilidad.</p>
+<p>Por ejemplo, la función <code>rnorm(50, mean = 100 , sd = 10)</code>
+, genera <code>50</code> números aleatorios con distribución
+aproximadamente normal con media <code>100</code> y desviación estandar
+<span class="math inline">\(10\)</span>.</p>
+<p>Mientras que la función <code>rbinom(50, size=10, prob=0.3)</code>,
+genera una muestra aleatoria de <code>50</code> números con distribución
+binomial con parámetros : <code>n = 10</code> y
+<code>p = 0.30</code>.</p>
 <p>Los siguientes problemas requieren los conceptos de probabilidad y
-variable aleatoria, revisados en la unidad 2 del curso. Siguiendo los
+variable aleatoria, revisados en la Unidad 2 del curso. Siguiendo los
 pasos descritos podrás dar solución a los interrogantes</p>
 <p><br/><br/></p>
-<div id="problema-1" class="section level3">
-<h3><span style="color:#FF7F00"> <strong>Problema 1</strong></span></h3>
+<p>Tambien se hará uso de la función <code>apply(X,MARGIN, FUN)</code>,
+donde <code>X</code> representa una matriz - data.frame - ,
+<code>MARGIN</code> tomará el valor de <span
+class="math inline">\(1\)</span> indicando que la funcion descrita en
+<code>FUN</code>se realiza por filas o <span
+class="math inline">\(2\)</span> cuando se ejecuta por columnas y
+finalmente <code>FUN</code> que corresponde a la función a ejecutar. Por
+ejemplo: <code>apply(X,1,min)</code> , da como resultado un vector de
+los minimos obtenidos para cada fila de la matriz <code>X</code></p>
+<p><br/><br/></p>
+<div id="problema-1" class="section level2">
+<h2><span style="color:#FF7F00"> <strong>Problema 1</strong></span></h2>
 </div>
 <div id="el-cable-quebradizo" class="section level2">
 <h2><span style="color:#034A94"><strong>El cable
@@ -314,9 +344,9 @@ kN\)</span> debe ser menor a <span class="math inline">\(0.01\)</span>.
 <pre class="r"><code>probD=sum(as.numeric(fuerza&gt;60))/1000
 probD</code></pre>
 <p><br/><br/><br/><br/></p>
-<div id="problema-2" class="section level3">
-<h3><span style="color:#FF7F00"> <strong>Problema 2</strong></span></h3>
 </div>
+<div id="problema-2" class="section level2">
+<h2><span style="color:#FF7F00"> <strong>Problema 2</strong></span></h2>
 </div>
 <div id="partes-defectuosas" class="section level2">
 <h2><span style="color:#034A94"><strong>Partes
