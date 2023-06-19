@@ -7,7 +7,7 @@ css: styles.css
 
 <br/><br/>
 
-Una de las principales caracteristicas de una variable aleatoria es su función de probabilidad $f(x)$, la cual determina su valor esperado, varianza y además permite calcular tanto probabilidades puntuales en el caso de las varables discretas como tambien en intervalos  tanto para variables aleatorias discretas como para variables continuas.
+Una de las principales caracteristicas de una variable aleatoria es su función de probabilidad $f(x)$, la cual determina su valor esperado, varianza y además permite calcular tanto probabilidades puntuales en el caso de las varables discretas como tambien probabilidades en intervalos  tanto para variables aleatorias discretas como para variables continuas.
 
 <br/>
 
@@ -18,19 +18,19 @@ Por ejemplo, la función `rnorm(50, mean = 100 , sd = 10)` , genera `50` número
 
 Mientras que la función `rbinom(50, size=10, prob=0.3)`, genera una muestra aleatoria de `50` números con distribución binomial con parámetros : `n = 10` y `p = 0.30`.
 
-Los siguientes problemas requieren los conceptos de  probabilidad y variable aleatoria, revisados en la Unidad 2 del curso. Siguiendo los pasos descritos podrás dar solución a los interrogantes
 
+Tambien se hará uso de la función `apply(X,MARGIN, FUN)`,  donde `X` representa una matriz - data.frame - , `MARGIN` tomará el valor de $1$ indicando que la funcion descrita en `FUN`se realiza por filas o $2$ cuando se ejecuta por columnas y finalmente `FUN` que corresponde a la función a ejecutar.  Por ejemplo: `apply(X,1,min)` , da como resultado un vector de los minimos obtenidos para cada fila de la matriz `X`.
 
-<br/><br/>
+<br/>
 
-Tambien se hará uso de la función `apply(X,MARGIN, FUN)`,  donde `X` representa una matriz - data.frame - , `MARGIN` tomará el valor de $1$ indicando que la funcion descrita en `FUN`se realiza por filas o $2$ cuando se ejecuta por columnas y finalmente `FUN` que corresponde a la función a ejecutar.  Por ejemplo: `apply(X,1,min)` , da como resultado un vector de los minimos obtenidos para cada fila de la matriz `X`
+Los siguientes problemas requieren de los conceptos de  probabilidad y variable aleatoria, revisados en la Unidad 2 del curso. Siguiendo los pasos descritos podrás dar solución a los interrogantes planteados.
 
 <br/><br/>
 
 ## <span style="color:#FF7F00"> **Problema 1**</span>
 ## <span style="color:#034A94">**El cable quebradizo**</span>
 
-Un cable está compuesto por seis alambres. La fuerza de ruptura de cada alambre es una variable aleatoria distribuida normalmente con media de $10 kN$ y desviación estándar de $1 kN$ ($kN$=kiloNewton=$10^{3}N$). Utilizando el método de cable quebradizo, se estima que la fuerza del cable es igual a la fuerza de alambre más frágil multiplicada por el número de alambres.
+Un cable está compuesto por seis alambres. La fuerza de ruptura de cada alambre es una variable aleatoria distribuida normalmente con media de $10 kN$ y desviación estándar de $1 kN$ (Un $kN$$ = $kiloNewton$ = $10^{3} N$). Utilizando el método de cable quebradizo, se estima que la fuerza del cable es igual a la fuerza de alambre más frágil multiplicada por el número de alambres.
 
 ```{r, echo=FALSE, out.width="15%", fig.align = "center"}
 knitr::include_graphics("img/cable.png")
@@ -74,6 +74,8 @@ probD
 ```
 
 
+e. Realice un breve comentario sobre los resultados obtenidos
+
 <br/><br/><br/><br/>
 
 
@@ -107,6 +109,8 @@ c. Utilice las muestras para estimar la probabilidad de que el número total de 
 d. Utilice las muestras para estimar la probabilidad de que el envío de Victor tiene más partes defectuosas que el envío de José.
 
 e. Construya una gráfica de probabilidad normal para el número total de partes defectuosas. ¿La cantidad sigue una distribución normal?
+
+f. Realice un breve comentario sobre los resultados obtenidos
 
 ```{r, eval=FALSE}
 hist(defectuosas)
