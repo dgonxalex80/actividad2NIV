@@ -346,13 +346,13 @@ hist(fuerza)</code></pre>
 <li>Estime la mediana de la fuerza del cable.</li>
 </ol>
 <pre class="r"><code>cat(&quot;Media de la fuerza de resistencia : &quot;, mean(fuerza), &quot;\n&quot;)</code></pre>
-<pre><code>Media de la fuerza de resistencia :  52.71332 </code></pre>
+<pre><code>Media de la fuerza de resistencia :  52.46656 </code></pre>
 <p><br/><br/></p>
 <ol start="3" style="list-style-type: lower-alpha">
 <li>Estime la desviación estándar de la fuerza del cable.</li>
 </ol>
 <pre class="r"><code>cat(&quot;Desviación estandar de la fuerza de resistencia : &quot;,sd(fuerza), &quot;\n&quot;)</code></pre>
-<pre><code>Desviación estandar de la fuerza de resistencia :  3.820399 </code></pre>
+<pre><code>Desviación estandar de la fuerza de resistencia :  3.862782 </code></pre>
 <p><br/><br/></p>
 <ol start="4" style="list-style-type: lower-alpha">
 <li>Para que sea aceptable en cierta obra, la probabilidad de que el
@@ -362,7 +362,7 @@ kN\)</span> debe ser menor a <span class="math inline">\(0.01\)</span>.
 </ol>
 <pre class="r"><code>probRes=sum(as.numeric(fuerza&gt;60))/1000
 cat(&quot;P(X &gt; 60) = &quot;,probRes, &quot;\n&quot;)</code></pre>
-<pre><code>P(X &gt; 60) =  0.024 </code></pre>
+<pre><code>P(X &gt; 60) =  0.013 </code></pre>
 <ol start="5" style="list-style-type: lower-alpha">
 <li>Realice un breve comentario sobre los resultados obtenidos</li>
 </ol>
