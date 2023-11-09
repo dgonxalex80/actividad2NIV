@@ -1,9 +1,15 @@
 ---
 title: <span style="color:#034a94"> **Actividad 2**</span>
-output:
-html_document:
-css: styles.css
+output: 
+  html_document:
+    code_folding: hide
 ---
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+```
 
 <br/><br/>
 
@@ -13,11 +19,13 @@ Una de las principales caracteristicas de una variable aleatoria es su función 
 
 Es posible emplear los modelos de probabilidad para simular variables aleatorias asociadas situaciones reales utilizando para ello funciones que generan números aleatorios que se puedan asociar a una determinada distribución de probabilidad.
 
+<br/>
 
 Por ejemplo, la función `rnorm(50, mean = 100 , sd = 10)` , genera `50` números aleatorios con distribución aproximadamente normal con media `100` y desviación estandar $10$. 
 
 Mientras que la función `rbinom(50, size=10, prob=0.3)`, genera una muestra aleatoria de `50` números con distribución binomial con parámetros : `n = 10` y `p = 0.30`.
 
+<br/>
 
 Tambien se hará uso de la función `apply(X,MARGIN, FUN)`,  donde `X` representa una matriz - data.frame - , `MARGIN` tomará el valor de $1$ indicando que la funcion descrita en `FUN`se realiza por filas o $2$ cuando se ejecuta por columnas y finalmente `FUN` que corresponde a la función a ejecutar.  Por ejemplo: `apply(X,1,min)` , da como resultado un vector de los minimos obtenidos para cada fila de la matriz `X`.
 
@@ -39,7 +47,7 @@ knitr::include_graphics("img/cable.png")
 
 a. Utilice una muestra simulada de tamaño 1000 para estimar la fuerza media de este tipo de cable.
 
-```{r, eval=FALSE}
+```{r}
 cable=data.frame(
 a1 = rnorm(1000, 10,1),
 a2= rnorm(1000, 10,1),
@@ -48,6 +56,7 @@ a4= rnorm(1000, 10,1),
 a5= rnorm(1000, 10,1),
 a6= rnorm(1000, 10,1))
 fuerza=apply(cable,1,min)*6
+hist(fuerza)
 
 ```
 
@@ -55,22 +64,23 @@ fuerza=apply(cable,1,min)*6
 
 b. Estime la mediana de la fuerza del cable.
 
-```{r, eval=FALSE}
-mean(fuerza)
+```{r}
+cat("Media de la fuerza de resistencia : ", mean(fuerza), "\n")
 ```
 <br/><br/>
 
 c. Estime la desviación estándar de la fuerza del cable.
-```{r, eval=FALSE}
-sd(fuerza)
+```{r}
+cat("Desviación estandar de la fuerza de resistencia : ",sd(fuerza), "\n")
 ```
 <br/><br/>
 
 d. Para que sea aceptable en cierta obra, la probabilidad de que el cable se rompa con una carga de $60 kN$ debe ser menor a $0.01$. ¿Parece ser que el cable es aceptable? Explique.
 
-```{r, eval=FALSE}
-probD=sum(as.numeric(fuerza>60))/1000
-probD
+```{r}
+probRes=sum(as.numeric(fuerza>60))/1000
+cat("P(X > 60) = ",probRes, "\n")
+
 ```
 
 
@@ -93,11 +103,14 @@ knitr::include_graphics("img/moto.png")
 
 a. Sea $X$ el número de partes defectuosas en el envío proveniente del almacén de Victor  y $Y$ del número de partes defectuosas provenientes del almacén de José . ¿Cuáles son las distribuciones de las variables $X$ y $Y$? 
 
-```{r, eval=FALSE}
+```{r}
 data=data.frame(
 X=rbinom(1000,100,0.03),
 Y=rbinom(1000,100,0.05))
 defectuosas=apply(data, 1,sum)
+
+hist(defectuosas)
+plot(density(defectuosas))
 ```
 
 <br/><br/>
@@ -111,12 +124,6 @@ d. Utilice las muestras para estimar la probabilidad de que el envío de Victor 
 e. Construya una gráfica de probabilidad normal para el número total de partes defectuosas. ¿La cantidad sigue una distribución normal?
 
 f. Realice un breve comentario sobre los resultados obtenidos
-
-```{r, eval=FALSE}
-hist(defectuosas)
-plot(density(defectuosas))
-```
-
 
 <br/><br/>
 

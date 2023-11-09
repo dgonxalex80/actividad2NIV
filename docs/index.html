@@ -13,7 +13,7 @@
 
 <title> Actividad 2</title>
 
-<script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -30,6 +30,7 @@
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 
@@ -217,6 +218,9 @@ $(document).ready(function () {
 </style>
 
 <!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
 
 
 
@@ -254,6 +258,14 @@ $(document).ready(function () {
 
 <div id="header">
 
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
 
 
 <h1 class="title toc-ignore"><span style="color:#034a94">
@@ -274,6 +286,7 @@ discretas como para variables continuas.</p>
 aleatorias asociadas situaciones reales utilizando para ello funciones
 que generan números aleatorios que se puedan asociar a una determinada
 distribución de probabilidad.</p>
+<p><br/></p>
 <p>Por ejemplo, la función <code>rnorm(50, mean = 100 , sd = 10)</code>
 , genera <code>50</code> números aleatorios con distribución
 aproximadamente normal con media <code>100</code> y desviación estandar
@@ -282,6 +295,7 @@ aproximadamente normal con media <code>100</code> y desviación estandar
 genera una muestra aleatoria de <code>50</code> números con distribución
 binomial con parámetros : <code>n = 10</code> y
 <code>p = 0.30</code>.</p>
+<p><br/></p>
 <p>Tambien se hará uso de la función <code>apply(X,MARGIN, FUN)</code>,
 donde <code>X</code> representa una matriz - data.frame - ,
 <code>MARGIN</code> tomará el valor de <span
@@ -324,17 +338,21 @@ a3= rnorm(1000, 10,1),
 a4= rnorm(1000, 10,1),
 a5= rnorm(1000, 10,1),
 a6= rnorm(1000, 10,1))
-fuerza=apply(cable,1,min)*6</code></pre>
+fuerza=apply(cable,1,min)*6
+hist(fuerza)</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p><br/><br/></p>
 <ol start="2" style="list-style-type: lower-alpha">
 <li>Estime la mediana de la fuerza del cable.</li>
 </ol>
-<pre class="r"><code>mean(fuerza)</code></pre>
+<pre class="r"><code>cat(&quot;Media de la fuerza de resistencia : &quot;, mean(fuerza), &quot;\n&quot;)</code></pre>
+<pre><code>Media de la fuerza de resistencia :  52.71332 </code></pre>
 <p><br/><br/></p>
 <ol start="3" style="list-style-type: lower-alpha">
 <li>Estime la desviación estándar de la fuerza del cable.</li>
 </ol>
-<pre class="r"><code>sd(fuerza)</code></pre>
+<pre class="r"><code>cat(&quot;Desviación estandar de la fuerza de resistencia : &quot;,sd(fuerza), &quot;\n&quot;)</code></pre>
+<pre><code>Desviación estandar de la fuerza de resistencia :  3.820399 </code></pre>
 <p><br/><br/></p>
 <ol start="4" style="list-style-type: lower-alpha">
 <li>Para que sea aceptable en cierta obra, la probabilidad de que el
@@ -342,8 +360,9 @@ cable se rompa con una carga de <span class="math inline">\(60
 kN\)</span> debe ser menor a <span class="math inline">\(0.01\)</span>.
 ¿Parece ser que el cable es aceptable? Explique.</li>
 </ol>
-<pre class="r"><code>probD=sum(as.numeric(fuerza&gt;60))/1000
-probD</code></pre>
+<pre class="r"><code>probRes=sum(as.numeric(fuerza&gt;60))/1000
+cat(&quot;P(X &gt; 60) = &quot;,probRes, &quot;\n&quot;)</code></pre>
+<pre><code>P(X &gt; 60) =  0.024 </code></pre>
 <ol start="5" style="list-style-type: lower-alpha">
 <li>Realice un breve comentario sobre los resultados obtenidos</li>
 </ol>
@@ -375,7 +394,12 @@ class="math inline">\(Y\)</span>?</li>
 <pre class="r"><code>data=data.frame(
 X=rbinom(1000,100,0.03),
 Y=rbinom(1000,100,0.05))
-defectuosas=apply(data, 1,sum)</code></pre>
+defectuosas=apply(data, 1,sum)
+
+hist(defectuosas)</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<pre class="r"><code>plot(density(defectuosas))</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-7-2.png" width="672" /></p>
 <p><br/><br/></p>
 <ol start="2" style="list-style-type: lower-alpha">
 <li><p>Genere muestras simuladas de tamaño <span
@@ -392,8 +416,6 @@ normal?</p></li>
 <li><p>Realice un breve comentario sobre los resultados
 obtenidos</p></li>
 </ol>
-<pre class="r"><code>hist(defectuosas)
-plot(density(defectuosas))</code></pre>
 <p><br/><br/></p>
 <p>Ejercicios tomados de Navidi(2006)</p>
 </div>
@@ -431,6 +453,11 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
 
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
