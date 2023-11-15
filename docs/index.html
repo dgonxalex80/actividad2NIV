@@ -287,32 +287,12 @@ aleatorias asociadas situaciones reales utilizando para ello funciones
 que generan números aleatorios que se puedan asociar a una determinada
 distribución de probabilidad.</p>
 <p><br/></p>
-<p>Por ejemplo, la función <code>rnorm(50, mean = 100 , sd = 10)</code>
-, genera <code>50</code> números aleatorios con distribución
-aproximadamente normal con media <code>100</code> y desviación estandar
-<span class="math inline">\(10\)</span>.</p>
-<p>Mientras que la función <code>rbinom(50, size=10, prob=0.3)</code>,
-genera una muestra aleatoria de <code>50</code> números con distribución
-binomial con parámetros : <code>n = 10</code> y
-<code>p = 0.30</code>.</p>
-<p><br/></p>
-<p>Tambien se hará uso de la función <code>apply(X,MARGIN, FUN)</code>,
-donde <code>X</code> representa una matriz - data.frame - ,
-<code>MARGIN</code> tomará el valor de <span
-class="math inline">\(1\)</span> indicando que la funcion descrita en
-<code>FUN</code>se realiza por filas o <span
-class="math inline">\(2\)</span> cuando se ejecuta por columnas y
-finalmente <code>FUN</code> que corresponde a la función a ejecutar. Por
-ejemplo: <code>apply(X,1,min)</code> , da como resultado un vector de
-los minimos obtenidos para cada fila de la matriz <code>X</code>.</p>
-<p><br/></p>
 <p>Los siguientes problemas requieren de los conceptos de probabilidad y
 variable aleatoria, revisados en la Unidad 2 del curso. Siguiendo los
 pasos descritos podrás dar solución a los interrogantes planteados.</p>
 <p><br/><br/></p>
-<div id="problema-1" class="section level2">
-<h2><span style="color:#FF7F00"> <strong>Problema 1</strong></span></h2>
-</div>
+<div id="problema-1" class="section level1">
+<h1><span style="color:#FF7F00"> <strong>Problema 1</strong></span></h1>
 <div id="el-cable-quebradizo" class="section level2">
 <h2><span style="color:#034A94"><strong>El cable
 quebradizo</strong></span></h2>
@@ -325,7 +305,7 @@ class="math inline">\(kiloNewton\)</span> = <span
 class="math inline">\(10^{3} N\)</span>). Utilizando el método de cable
 quebradizo, se estima que la fuerza del cable es igual a la fuerza de
 alambre más frágil multiplicada por el número de alambres.</p>
-<p><img src="img/cable.png" width="15%" style="display: block; margin: auto;" />
+<p><img src="img/cable2.png" width="50%" style="display: block; margin: auto;" />
 <br/><br/></p>
 <ol style="list-style-type: lower-alpha">
 <li>Utilice una muestra simulada de tamaño 1000 para estimar la fuerza
@@ -340,19 +320,16 @@ a5= rnorm(1000, 10,1),
 a6= rnorm(1000, 10,1))
 fuerza=apply(cable,1,min)*6
 hist(fuerza)</code></pre>
-<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p><br/><br/></p>
 <ol start="2" style="list-style-type: lower-alpha">
 <li>Estime la mediana de la fuerza del cable.</li>
 </ol>
 <pre class="r"><code>cat(&quot;Media de la fuerza de resistencia : &quot;, mean(fuerza), &quot;\n&quot;)</code></pre>
-<pre><code>Media de la fuerza de resistencia :  52.46656 </code></pre>
 <p><br/><br/></p>
 <ol start="3" style="list-style-type: lower-alpha">
 <li>Estime la desviación estándar de la fuerza del cable.</li>
 </ol>
 <pre class="r"><code>cat(&quot;Desviación estandar de la fuerza de resistencia : &quot;,sd(fuerza), &quot;\n&quot;)</code></pre>
-<pre><code>Desviación estandar de la fuerza de resistencia :  3.862782 </code></pre>
 <p><br/><br/></p>
 <ol start="4" style="list-style-type: lower-alpha">
 <li>Para que sea aceptable en cierta obra, la probabilidad de que el
@@ -362,15 +339,14 @@ kN\)</span> debe ser menor a <span class="math inline">\(0.01\)</span>.
 </ol>
 <pre class="r"><code>probRes=sum(as.numeric(fuerza&gt;60))/1000
 cat(&quot;P(X &gt; 60) = &quot;,probRes, &quot;\n&quot;)</code></pre>
-<pre><code>P(X &gt; 60) =  0.013 </code></pre>
 <ol start="5" style="list-style-type: lower-alpha">
-<li>Realice un breve comentario sobre los resultados obtenidos</li>
+<li>Realice un informe con los resultados obtenidos</li>
 </ol>
 <p><br/><br/><br/><br/></p>
 </div>
-<div id="problema-2" class="section level2">
-<h2><span style="color:#FF7F00"> <strong>Problema 2</strong></span></h2>
 </div>
+<div id="problema-2" class="section level1">
+<h1><span style="color:#FF7F00"> <strong>Problema 2</strong></span></h1>
 <div id="partes-defectuosas" class="section level2">
 <h2><span style="color:#034A94"><strong>Partes
 defectuosas</strong></span></h2>
@@ -396,10 +372,8 @@ X=rbinom(1000,100,0.03),
 Y=rbinom(1000,100,0.05))
 defectuosas=apply(data, 1,sum)
 
-hist(defectuosas)</code></pre>
-<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
-<pre class="r"><code>plot(density(defectuosas))</code></pre>
-<p><img src="index_files/figure-html/unnamed-chunk-7-2.png" width="672" /></p>
+hist(defectuosas)
+plot(density(defectuosas))</code></pre>
 <p><br/><br/></p>
 <ol start="2" style="list-style-type: lower-alpha">
 <li><p>Genere muestras simuladas de tamaño <span
@@ -413,11 +387,125 @@ de Victor tiene más partes defectuosas que el envío de José.</p></li>
 <li><p>Construya una gráfica de probabilidad normal para el número total
 de partes defectuosas. ¿La cantidad sigue una distribución
 normal?</p></li>
-<li><p>Realice un breve comentario sobre los resultados
-obtenidos</p></li>
+<li><p>Realice un informe con los resultados obtenidos</p></li>
 </ol>
 <p><br/><br/></p>
 <p>Ejercicios tomados de Navidi(2006)</p>
+<p><br/><br/></p>
+<br/><br/>
+<div id="funciones-r-utlizadas" class="section level3 content-box-blue">
+<h3><span style="color:#034a94"> <strong>Funciones R
+utlizadas</strong></span></h3>
+<p><br/></p>
+<ul>
+<li><strong>apply</strong> : Devuelve un vector, matriz o lista de
+valores obtenidos aplicando una función a los márgenes de una matriz.
+Ej. <code>x =data.frame(x1= 1:20, x2=21:40)</code> ;
+<code>apply(x,1,mean)</code> ; <code>apply(x,2,mean)</code> .</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>as.numeric</strong> : Se utiliza para convertir un objeto en
+un tipo de dato numérico. Ej.:
+<code>as.numeric(c("1.2", "2.5", "3.9"))</code>. Tambien puede ser
+utilizada para la construcción de vector de ceros y unos. Coloca uno
+cuando se cumple una condición y ceros cuando no se cumple. Ej.:
+<code>x= 1:20 as.numeric(x &gt; 10)</code>.</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>boxplot</strong> : Se utiliza para crear gráficos de
+diagrama de caja. Ej.: <code>boxplot(x)</code> .</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>cat</strong>: Se utiliza para imprimir texto en la consola o
+en un archivo de salida. Ej.:
+<code>cat("Media de la edad", mean(x))</code>.</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>density</strong> : Se utiliza para estimar y trazar la
+densidad de probabilidad de un conjunto de datos. La densidad de
+probabilidad es una estimación suave de la distribución de probabilidad
+subyacente de un conjunto de datos, que puede ayudarte a visualizar la
+forma y la tendencia de la distribución. Ej.:
+<code>plot(density(x))</code>.</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>descr</strong> : Función del paquete summarytools en R es
+una herramienta útil para generar descripciones estadísticas resumidas
+de un conjunto de datos. Ej.: <code>summarytools::descr(x)</code>.</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>freq</strong> : se utiliza para generar tablas de frecuencia
+para variables categóricas en un conjunto de datos. Ej.:
+<code>summarytools::freq(x)</code> .</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>hist</strong> Se utiliza para crear histogramas, que son
+gráficos que representan la distribución de una variable numérica
+segmentada por intervalos. Ej.: <code>hist(x)</code> .</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>max</strong> : Se utiliza para encontrar el valor máximo en
+un conjunto de valores numéricos. Ej.: <code>max(x)</code> .</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>mean</strong> Se utiliza para encontrar la media o promedio
+de un conjunto de valores numéricos. Ej.: <code>mean(x)</code> .</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>median</strong> Se utiliza para encontrar la mediana o
+promedio de un conjunto de valores numéricos. Ej.:
+<code>median(x)</code> .</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>min</strong> Se utiliza para encontrar el valor mínimo en un
+conjunto de valores numéricos. Ej.: <code>min(x)</code> .</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>pie</strong> Se utiliza para la constricción de gráficos
+circulares o de pastel. Se construye a partir de un vector con las
+frecuencias absolutas o una tabla. Ej.: pie(x)</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>plot</strong> Se emplea para construir gráficos de puntos o
+lineas. Ej.: <code>plot(x,y)</code> .</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>sd</strong> : Se utiliza para encontrar la desviación
+estándar de un conjunto de valores numéricos. Ej.: <code>sd(x)</code>
+.</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>sum</strong> : Se utiliza para sumar un conjunto de valores.
+Ej.: <code>sum(1:100)</code> .</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>table</strong> : Se utiliza para construir una tabla de
+freciencias para una variable cualitativa. Ej.; <code>table(x)</code>
+.</li>
+</ul>
+<p><br/></p>
+<ul>
+<li><strong>var</strong>: Se utiliza para encontrar la varianza de un
+conjunto de valores numéricos. Ej.: <code>var(x)</code> .</li>
+</ul>
+</div>
+</div>
 </div>
 
 
